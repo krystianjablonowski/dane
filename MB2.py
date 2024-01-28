@@ -5,6 +5,7 @@ import scipy.special as sp
 from itertools import permutations 
 import time 
 import concurrent.futures
+import math
 
 from Hydrogen_Atom import radial_function
 
@@ -45,17 +46,17 @@ def MB(x, x_prime, E_field, N):
     in which Wannier functions are localized and
     strenght of electric field.
     """
+    Gamma=gamma(E_field, N)
     res=0
     perm = permutations([i for i in np.arange(1,N+1)]) 
-    
-    for xi in perm:
-        #rmlist=perm[1:]
-        zeta_list=[zeta(xi[i], E_field) for i in np.arange(1,N)]
-        multi=np.prod(zeta_list)#zeta(xi[1], E_field)*zeta(xi[2], E_field)*zeta(xi[3], E_field)*zeta(xi[4], E_field)*zeta(xi[5], E_field)
-        for i in np.arange(1,N+1):
-            for j in np.arange(1,N+1):
-               res+= radial_function(i,0,np.abs(x),0.75)*radial_function(j,0,np.abs(x_prime),0.75)*sp.jv(i-xi[0],1/E_field)*sp.jv(j-xi[0],1/E_field)*multi
-    return res
+    math.factorial(N-1)
+
+    for i in np.arange(1,N):
+        for n in np.arange(-3,3):
+            for m in np.arange(-3,3):
+                res+=sp.jv(-i+n,1/E_field)*sp.jv(-i+m,1/E_field)*radial_function(m+4,0,np.abs(x-m),0.75)*radial_function(n+4,0,np.abs(x_prime-n),0.75)/(zeta(i, E_field))
+
+    return res*math.factorial(N-1)
 
 def part(lp):
     """
@@ -68,7 +69,7 @@ def part(lp):
     list=np.arange(start,stop,0.15)
     listay=[]
     for i in list:
-        listay.append([i,MB(4,4,i,5)])
+        listay.append([i,MB(1,4,i,10)])
     return listay
 
 
