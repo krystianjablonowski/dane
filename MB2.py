@@ -8,6 +8,7 @@ import concurrent.futures
 
 from Hydrogen_Atom import radial_function
 
+#Nowy commit
 
 plt.rcParams.update({
     'text.usetex': True,
