@@ -38,7 +38,6 @@ def gamma(E_field, N):
 # for i in list(perm): 
 #     print (i[0]) 
 
-#ABBA
 def MB(x, x_prime, E_field, N):  
     """ 
     MB function as an arguments takes positions 
