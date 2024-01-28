@@ -9,7 +9,6 @@ import math
 
 from Hydrogen_Atom import radial_function
 
-#Nowy commit
 
 plt.rcParams.update({
     'text.usetex': True,
@@ -33,12 +32,6 @@ def gamma(E_field, N):
 
     return res
 
-
-# perm = permutations([1, 2, 3, 4, 5, 6, 7, 8]) 
- 
-# # Print the obtained permutations 
-# for i in list(perm): 
-#     print (i[0]) 
 
 def MB(x, x_prime, E_field, N):  
     """ 
@@ -67,11 +60,11 @@ def part(lp):
     list=np.arange(start,stop,0.01)
     listay=[]
     for i in list:
-        listay.append([i,MB(1,5,i,6)])
+        listay.append([i,MB(4,4,i,5)])
     return listay
 
 
-args=[[0.01,2.5],[2.5,5]]
+args=[[0.1,2.5],[2.5,5]]
 
 
 def main():
@@ -85,26 +78,20 @@ def main():
 
 
 if __name__ == '__main__':
-    list=np.array(main())
+    k_list=main()
+    print((k_list[0]))
+    list=np.array(k_list[0])
     print(len(list))
     X=[]
     Y=[]
-    for i in np.arange(0,len(list)-1):
-        for j in list[i]:
-            X.append(j[0])
-            Y.append(j[1])
+    #for i in np.arange(0,len(list)-1):
+    for j in list:
+        X.append(j[0])
+        Y.append(j[1])
+    # plt.yscale("log")
     plt.plot(X,Y)
     plt.show()
-# list=np.arange(0.01,10,0.25)
-# listay=[]
-# for i in list:
-#     start=time.perf_counter()
-#     listay.append(MB(1,4,i))
-#     stop=time.perf_counter()
-#     print('Czas = ', stop-start)
 
-# for i in listay:
-#     print(i)
 
 # plt.plot(list,listay)
 # plt.xlabel(r'$E$',fontsize=18)
@@ -112,6 +99,5 @@ if __name__ == '__main__':
 
 # #plt.savefig("C:/Users/avoga/Documents/HKplusDC/density_function_x=_%.1f"%1+"xprim=_%1f"%6+".pdf")
 
-# # plt.plot(list,radial_function(5,2,list+2,0.25))
-# # plt.plot(list,radial_function(5,3,list+2,0.25))
+
 # plt.show()
