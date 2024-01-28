@@ -48,15 +48,13 @@ def MB(x, x_prime, E_field, N):
     """
     Gamma=gamma(E_field, N)
     res=0
-    perm = permutations([i for i in np.arange(1,N+1)]) 
-    math.factorial(N-1)
 
     for i in np.arange(1,N):
-        for n in np.arange(-3,3):
-            for m in np.arange(-3,3):
-                res+=sp.jv(-i+n,1/E_field)*sp.jv(-i+m,1/E_field)*radial_function(m+4,0,np.abs(x-m),0.75)*radial_function(n+4,0,np.abs(x_prime-n),0.75)/(zeta(i, E_field))
+        for n in np.arange(1,3):
+            for m in np.arange(1,3):
+                res+=sp.jv(-i+n,1/E_field)*sp.jv(-i+m,1/E_field)*radial_function(m,0,np.abs(x),0.75)*radial_function(n,0,np.abs(x_prime),0.75)/(zeta(i, E_field))
 
-    return res*math.factorial(N-1)
+    return res*math.factorial(N-1)*Gamma
 
 def part(lp):
     """
@@ -66,14 +64,14 @@ def part(lp):
     """
     start=lp[0]
     stop=lp[1]
-    list=np.arange(start,stop,0.15)
+    list=np.arange(start,stop,0.01)
     listay=[]
     for i in list:
-        listay.append([i,MB(1,4,i,10)])
+        listay.append([i,MB(1,5,i,6)])
     return listay
 
 
-args=[[0.01,2.5],[2.5,5],[5,7.5],[7.5,10],[10,12.5],[12.5,15],[15,17.5],[17.5,20]]
+args=[[0.01,2.5],[2.5,5]]
 
 
 def main():
@@ -84,7 +82,7 @@ def main():
                 empty_list.append(prime)
     return empty_list
 
-print(args[0])
+
 
 if __name__ == '__main__':
     list=np.array(main())
