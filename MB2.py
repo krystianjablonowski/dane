@@ -93,7 +93,7 @@ if __name__ == '__main__':
     plt.show()
 
 
-# plt.plot(list,listay)
+
 # plt.xlabel(r'$E$',fontsize=18)
 # plt.ylabel(r'$\varrho$',fontsize=18)
 
