@@ -45,7 +45,7 @@ def MB(x, x_prime, E_field, N):
     for i in np.arange(1,N):
         for n in np.arange(1,3):
             for m in np.arange(1,3):
-                res+=sp.jv(-i+n,1/E_field)*sp.jv(-i+m,1/E_field)*radial_function(m,0,np.abs(x),0.75)*radial_function(n,0,np.abs(x_prime),0.75)/(zeta(i, E_field))
+                res+=sp.jv(-i+n,1/E_field)*sp.jv(-i+m,1/E_field)*radial_function(m,0,np.abs(x-n),0.75)*radial_function(n,0,np.abs(x_prime-m),0.75)/(zeta(i, E_field))
 
     return res*math.factorial(N-1)*Gamma
 
@@ -60,7 +60,7 @@ def part(lp):
     list=np.arange(start,stop,0.01)
     listay=[]
     for i in list:
-        listay.append([i,MB(4,4,i,5)])
+        listay.append([i,MB(2,2,i,5)])
     return listay
 
 
