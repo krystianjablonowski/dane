@@ -84,7 +84,7 @@ if __name__ == '__main__':
     print(len(list))
     X=[]
     Y=[]
-    #for i in np.arange(0,len(list)-1):
+
     for j in list:
         X.append(j[0])
         Y.append(j[1])
