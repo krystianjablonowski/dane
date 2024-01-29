@@ -9,3 +9,7 @@
  ````
  git add
  ````
+Then you can commit. It is important to add also some comment at least in my case I cannot even cmmit without it.
+``
+git commit -m "Comment"
+``
