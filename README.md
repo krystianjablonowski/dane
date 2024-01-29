@@ -6,6 +6,6 @@
 
 # How commit?
  First you have to chose which files you want to add to commit. In order to do this use commend
- '''
+ ````
  git add
- '''
+ ````
