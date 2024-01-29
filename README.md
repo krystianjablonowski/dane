@@ -18,3 +18,10 @@ And the last step is to push your work. This could be done by
 git pull
 git push
 ````
+Second important thing is that in the very begining you should point where you want import your files. This you can do by
+````
+gir remote add origin https://github.com/krystianjablonowski/HK_MB.git 
+````
+More about ``git remote`` one can read [here](https://git-scm.com/docs/git-remote).
+For the begining this is all what you should know.
+
