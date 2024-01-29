@@ -60,7 +60,7 @@ def part(lp):
     list=np.arange(start,stop,0.01)
     listay=[]
     for i in list:
-        listay.append([i,MB(2,2,i,5)])
+        listay.append([i,MB(1,5,i,5)])
     return listay
 
 
@@ -88,10 +88,14 @@ if __name__ == '__main__':
     for j in list:
         X.append(j[0])
         Y.append(j[1])
-    # plt.yscale("log")
+    #plt.yscale("log")
     plt.plot(X,Y)
     plt.show()
 
+    file = open("C:/Users/avoga/Documents/HKplusDC/dane/MBdensity_x=_ %.1f"%1+"xprim=_%.1f" %5+"N=_%.1f"%5+".txt", "w")
+    for index in range(len(X)):
+        file.write(str(X[index]) + " " + str(Y[index]) + "\n")
+    file.close()
 
 
 # plt.xlabel(r'$E$',fontsize=18)
