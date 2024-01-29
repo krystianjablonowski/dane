@@ -26,7 +26,7 @@ More about ``git remote`` one can read [here](https://git-scm.com/docs/git-remot
 For the begining this is all what you should know.
 ````python
 import numpy as np
-
-print("Cześ")
+def fun():
+ print("Cześć")
 ````
 
