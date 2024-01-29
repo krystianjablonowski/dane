@@ -9,7 +9,7 @@
  ````
  git add
  ````
-Then you can commit. It is important to add also some comment at least in my case I cannot even cmmit without it.
+Then you can commit. It is important to add also some comment at least in my case I cannot even commit without it.
 ````
 git commit -m "Comment"
 ````
@@ -24,4 +24,9 @@ gir remote add origin https://github.com/krystianjablonowski/HK_MB.git
 ````
 More about ``git remote`` one can read [here](https://git-scm.com/docs/git-remote).
 For the begining this is all what you should know.
+````python
+import numpy as np
+
+print("Cześ")
+````
 
